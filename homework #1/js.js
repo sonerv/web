@@ -1,17 +1,21 @@
 let canvas = document.getElementById("sandbox"),
     context = canvas.getContext("2d");
 
-function drawLine(angle) {
+function drawLine(angle, a, b, width, style) {
   let R = 300 / 2;
     let pX = Math.cos(angle) * R;
     let pY = -Math.sin(angle) * R;
-    let qX = 0.9 * pX;
-    let qY = 0.9 * pY;
+    let qX = a * pX;
+    let qY = a * pY;
+    pX *= b;
+    pY *= b;
     pX += R; pY += R;
     qX += R; qY += R;
     let line = new Path2D();
     line.moveTo(pX, pY);
     line.lineTo(qX, qY);
+    context.strokeStyle = style;
+    context.lineWidth = width;
     context.stroke(line);
 }
 
@@ -30,9 +34,12 @@ function drawWatch() {
   hoursAngle = Math.PI / 2 - hoursAngle;
   for (let d = 0; d < 60; ++d) {
     let angle = (d / 60) * (2 * Math.PI);
-  drawLine(angle);
-}
-  drawLine(secondsAngle);
+    drawLine(angle, 0.9, 1, 1, "black");
+  }
+  drawLine(secondsAngle, 0, 0.95, 2, 2, "black");
+  drawLine(minutesAngle, 0, 0.75, 3, "black");
+  drawLine(hoursAngle, 0, 0.6, 4, "black");
   setTimeout(drawWatch, 1000);
 }
+
 drawWatch();
