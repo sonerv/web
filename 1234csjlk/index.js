@@ -6,7 +6,7 @@ app.use(cors());
 app.get("/quote", function(req, res) {
   fs.readFile("database.txt", "utf-8", function(err, content) {
     let quotes = content.split("\n");
-    let index = Math.floor(Math.random() * (quotes.lenght - 1));
+    let index = Math.floor(Math.random() * (quotes.length - 1));
     console.log(true);
     let result = {
       number: index + 1,
