@@ -1,5 +1,5 @@
 var wss = require("ws").Server;
-var server = new wss({port:590});
+var server = new wss({port:592});
 var clients = new Set();
 server.on("connection",function(socket){
     clients.add(socket);
@@ -8,7 +8,7 @@ server.on("connection",function(socket){
             interlocutor.send(message);
         }
     });
-    socket.on("close",function(){
+    socket.on("close", function(){
         clients.delete(socket);
     });
 });
