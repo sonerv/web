@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список записей</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            </tr>
+        </thead>
+    <tbody></tbody>
+    </table>
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script>
+    $.get("/records1",function(data){
+        var list=jQuery.parseJSON(data);
+        var tbody=$("tbody");
+        list.forEach(function(item){
+            var row=$("<tr><td>"+item.firstName+"</td>"+"<td>"+item.lastName+"</td></tr>");
+            tbody.append(row);
+            console.log(row);
+        });
+    });
+
+    </script>
+</body>
+</html>
