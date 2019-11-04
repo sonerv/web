@@ -1,22 +1,8 @@
-let ws = new WebSocket("ws://localhost:590")
-
-tinyMCE.init({
-  selector: "div",
-  plugins: ["fullscreen"],
-  setup: function(editor) {
-    editor.on("init", function() {
-      setTimeout(function() {
-          editor.execCommand("mceFullScreen")
-      }, 0);
-    });
-    ws.onmessage = function(message) {
-      document.activeElement.blur();
-      editor.setContent(message.data);
-    }
-    function sendDocument() {
-      ws.send(editor.getContent());
-    }
-    editor.on("keyup", sendDocument);
-    editor.on("change", sendDocument);
-  }
+let qB = document.getElementById("quote");
+let req = $.get("http://localhost:590/quote")
+req.done(function(data) {
+  let quote = JSON.parse(data);
+  document.title = "Цитата#"+quote.text;
+  qB.innerHTML = quote.test;
+  qB.style.display = "block";
 });
