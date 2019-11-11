@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .btn {
+        width: 200px;
+        height: 45px;
+        background-color: #2f2f2f;
+        color: white;
+        border-bottom: none;
+        border-radius: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label>Площадь</label>
+      <div class="form-group">
+        <input type="number" placeholder="от" name="areaLowerBound" value="" class="form-control" min="0" max="1000000000" step="1" required>
+      </div>
+      <div class="form-group">
+        <input type="number" placeholder="до" name="areaUpperBound" value="" class="form-control" min="0" max="1000000000" step="1" required>
+      </div>
+      <div class="checkbox">
+        <label>
+            <input type="checkbox" name="englishSpeaking" value="">Англоговорящая
+        </label>
+
+      </div>
+      <button type="submit" name="button" class="btn">Найти!</button>
+
+    </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Страна</th>
+          <th>Площадь</th>
+          <th>Англоговорящая</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

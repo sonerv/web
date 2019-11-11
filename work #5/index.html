@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <input type="number" v-model="n">
+        <p>x2: {{n*2}}</p>
+      </div>
+      <div>
+        <input type="checkbox" v-model="checked">
+        <p>{{checked ? "YES" : "NO"}}</p>
+      </div>
+      <div>
+        <input type="text" v-model="message">
+        <p>{{message.split("").reverse().join("")}}</p>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js" charset="utf-8"></script>
+    <script src="index.js" charset="utf-8"></script>
+  </body>
+</html>
