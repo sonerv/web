@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="utf-8">
+    <title>.</title>
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app" class="schema">
+      <h1>
+        <input type="checkbox" v-model="left">
+        <span>&&</span>
+        <input type="checkbox" v-model="right">
+        <div class="schema__result">
+          {{left && right}}
+        </div>
+      </h1>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script src="js.js"></script>
+  </body>
+</html>
